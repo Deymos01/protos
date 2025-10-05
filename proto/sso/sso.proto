@@ -38,7 +38,10 @@ message IsAdminResponse {
   bool is_admin = 1; // indicates whether the user is an admin
 }
 
-message CreateAppRequest {}
+message CreateAppRequest {
+  string name = 1;    // app name
+  string secret = 2;  // secret of the app
+}
 
 message CreateAppResponse {
   int64 app_id = 1;

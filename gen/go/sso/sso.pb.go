@@ -311,6 +311,8 @@ func (x *IsAdminResponse) GetIsAdmin() bool {
 
 type CreateAppRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
+	Name          string                 `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`     // app name
+	Secret        string                 `protobuf:"bytes,2,opt,name=secret,proto3" json:"secret,omitempty"` // secret of the app
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -343,6 +345,20 @@ func (x *CreateAppRequest) ProtoReflect() protoreflect.Message {
 // Deprecated: Use CreateAppRequest.ProtoReflect.Descriptor instead.
 func (*CreateAppRequest) Descriptor() ([]byte, []int) {
 	return file_sso_sso_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *CreateAppRequest) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *CreateAppRequest) GetSecret() string {
+	if x != nil {
+		return x.Secret
+	}
+	return ""
 }
 
 type CreateAppResponse struct {
@@ -408,8 +424,10 @@ const file_sso_sso_proto_rawDesc = "" +
 	"\x0eIsAdminRequest\x12\x17\n" +
 	"\auser_id\x18\x01 \x01(\x03R\x06userId\",\n" +
 	"\x0fIsAdminResponse\x12\x19\n" +
-	"\bis_admin\x18\x01 \x01(\bR\aisAdmin\"\x12\n" +
-	"\x10CreateAppRequest\"*\n" +
+	"\bis_admin\x18\x01 \x01(\bR\aisAdmin\">\n" +
+	"\x10CreateAppRequest\x12\x12\n" +
+	"\x04name\x18\x01 \x01(\tR\x04name\x12\x16\n" +
+	"\x06secret\x18\x02 \x01(\tR\x06secret\"*\n" +
 	"\x11CreateAppResponse\x12\x15\n" +
 	"\x06app_id\x18\x01 \x01(\x03R\x05appId2\xe9\x01\n" +
 	"\x04Auth\x129\n" +
